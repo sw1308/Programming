@@ -1,7 +1,7 @@
-#include <iostream>
-using namespace std;
+#include<stdio.h>
+
 int main()
 {
-	cout<<"\n Hello World\n"<<endl;
+	printf("Hello World\n");
 	return(0);
 }
