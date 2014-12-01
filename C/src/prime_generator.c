@@ -5,53 +5,59 @@
 
 int main()
 {
-	int i = 1;
+	int i = 0;
 	int isPrime;
 	
-	FILE *fa;
-	fa = fopen(FILEPATH, "a");
+	FILE *fp;
+	fp = fopen(FILEPATH, "a+");
+	
+	while(fscanf(fp, "%d", &i) != EOF);
+	rewind(fp);
+	i++;
 	
 	while(1)
 	{
-		if(checkPrime(i) == 1)
+		if(i==1)
 		{
-			fprintf(fa, "%d\n", i);
-			printf("Found prime: %d\n", i);
+			i++;
+			continue;
 		}
-		
-		i++;
-	}
-	
-	fclose(fa);
-}
-
-int checkPrime(int i)
-{
-	if(i==2)
-	{
-		return 1;
-	}
-	else if((i % 2) == 0)
-	{
-		return 0;
-	}
-	else
-	{
-		int line;
-		
-		FILE *fw;
-		fw = fopen(FILEPATH, "r");
-		
-		while(fscanf(fw, "%d", &line) && (line<sqrt(i)))
+		else if(i==2)
 		{
-			if(i%line==0)
+			fprintf(fp, "%d\n", i);
+			rewind(fp);
+		}
+		else if((i % 2) == 0)
+		{
+			i++;
+			continue;
+		}
+		else
+		{
+			int line;
+		
+			while(fscanf(fp, "%d", &line) != EOF)
 			{
-				return 0;
+				if(line>sqrt(i))
+				{
+					fprintf(fp, "%d\n", i);
+					rewind(fp);
+					break;
+				}
+				else if(i%line==0)
+				{
+					break;
+				}
 			}
 		}
 		
-		fclose(fw);
+		i++;
 		
-		return 1;
+		if(i%1000000==0)
+		{
+			printf("Reached milestone: %d\n", i);
+		}
 	}
+	
+	fclose(fp);
 }
