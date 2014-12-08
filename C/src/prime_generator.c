@@ -53,6 +53,7 @@ int main()
 		
 		i++;
 		
+		//Reduces output to increase speed
 		if(i%1000000==0)
 		{
 			printf("Reached milestone: %d\n", i);
