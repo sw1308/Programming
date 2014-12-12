@@ -1,5 +1,92 @@
 <!DOCTYPE html>
 
 <html>
-	
+	<head>
+		<title>Finances</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".hidden-top").removeClass("hidden-top");
+			});
+		</script>
+		<style>
+			html, body, h1, p {
+				padding:0;
+				margin:0;
+			}
+			body {
+				color:#fff;
+				background-color:#6200ae;
+				z-index:0;
+			}
+			#title {
+				z-index:13;
+				min-width:377px;
+				width:25%;
+				max-width:610px;
+			}
+			.stdContainer {
+				transition:1s ease;
+				background-color:#b388ff;
+				text-align:center;
+				color:#000;
+				margin-top:55px;
+				margin-left:auto;
+				margin-right:auto;
+				min-width:610px;
+				width:50%;
+				max-width:987px
+				z-index:8;
+				position:relative;
+				box-shadow:5px 5px 30px #000;
+			}
+			.stdContainer * {
+				padding:21px;
+			}
+			.hidden-top {
+				margin-top:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='siteWrapper'>
+			<div id='title' class='stdContainer hidden-top'>
+				<h1>Finances</h1>
+			</div>
+			<div class='stdContainer hidden-top'>
+				<table>
+					<tr>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
+					</tr>
+					<tr>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
+					</tr>
+					<tr>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
+					</tr>
+				</table>
+			</div>
+			<div class='stdContainer hidden-top'>
+				<p>This is a test paragraph, a table of data should go here in the finished product</p>
+			</div>
+			<div class='stdContainer hidden-top'>
+				<p>This is a test paragraph, a table of data should go here in the finished product</p>
+			</div>
+			<div class='stdContainer hidden-top'>
+				<p>This is a test paragraph, a table of data should go here in the finished product</p>
+			</div>
+			<div class='stdContainer hidden-top'>
+				<p>This is a test paragraph, a table of data should go here in the finished product</p>
+			</div>
+			<div class='stdContainer hidden-top'>
+				<p>This is a test paragraph, a table of data should go here in the finished product</p>
+			</div>
+		</div>
+	</body>
 </html>
