@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>Finances</title>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100,900' rel='stylesheet' type='text/css'>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -18,12 +19,39 @@
 				color:#fff;
 				background-color:#6200ae;
 				z-index:0;
+				font-family: 'Roboto', sans-serif;
 			}
 			#title {
-				z-index:13;
+				z-index:21;
 				min-width:377px;
 				width:25%;
 				max-width:610px;
+				box-shadow:21px 21px 30px #000;
+			}
+			#menuBar {
+				min-width:610px;
+				width:50%;
+				max-width:987px;
+				margin:55px auto;
+				padding:0;
+				text-align:justify;
+				font-size:0;
+				line-height:0;
+			}
+			#menuBar div {
+				display:inline-block;
+				background-color:#aa00ff;
+				width:89px;
+				height:89px;
+				z-index:13;
+				border-radius:50%;
+				box-shadow:13px 13px 30px #000;
+			}
+			.stretch {
+				width:100%;
+				display:inline-block;
+				font-size:0;
+				line-height:0;
 			}
 			.stdContainer {
 				transition:1s ease;
@@ -35,13 +63,15 @@
 				margin-right:auto;
 				min-width:610px;
 				width:50%;
-				max-width:987px
+				max-width:987px;
 				z-index:8;
 				position:relative;
-				box-shadow:5px 5px 30px #000;
+				box-shadow:8px 8px 30px #000;
 			}
 			.stdContainer * {
 				padding:21px;
+				text-align:center;
+				margin:0 auto;
 			}
 			.hidden-top {
 				margin-top:100%;
@@ -52,6 +82,14 @@
 		<div id='siteWrapper'>
 			<div id='title' class='stdContainer hidden-top'>
 				<h1>Finances</h1>
+			</div>
+			<div id='menuBar' class='hidden-top'>
+				<div class='hidden-top'></div>
+				<div class='hidden-top'></div>
+				<div class='hidden-top'></div>
+				<div class='hidden-top'></div>
+				<div class='hidden-top'></div>
+				<span class='stretch'></span>
 			</div>
 			<div class='stdContainer hidden-top'>
 				<table>
