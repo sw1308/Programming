@@ -5,14 +5,11 @@
 
 int main()
 {
-	int i = 0;
-	int isPrime;
+	unsigned long long int i = 0;
 	
 	FILE *fp;
 	fp = fopen(FILEPATH, "a+");
 	
-	while(fscanf(fp, "%d", &i) != EOF);
-	rewind(fp);
 	i++;
 	
 	while(1)
@@ -24,7 +21,7 @@ int main()
 		}
 		else if(i==2)
 		{
-			fprintf(fp, "%d\n", i);
+			fprintf(fp, "%llu\n", i);
 			rewind(fp);
 		}
 		else if((i % 2) == 0)
@@ -34,13 +31,13 @@ int main()
 		}
 		else
 		{
-			int line;
+			unsigned long long int line;
 		
-			while(fscanf(fp, "%d", &line) != EOF)
+			while(fscanf(fp, "%llu", &line) != EOF)
 			{
 				if(line>sqrt(i))
 				{
-					fprintf(fp, "%d\n", i);
+					fprintf(fp, "%llu\n", i);
 					rewind(fp);
 					break;
 				}
@@ -56,7 +53,7 @@ int main()
 		//Reduces output to increase speed
 		if(i%1000000==0)
 		{
-			printf("Reached milestone: %d\n", i);
+			printf("Reached milestone: %llu\n", i);
 		}
 	}
 	
