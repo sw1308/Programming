@@ -10,6 +10,7 @@ int main()
 	FILE *fp;
 	fp = fopen(FILEPATH, "a+");
 	
+	while(fscanf(fp, "%llu", &i) != EOF);
 	i++;
 	
 	while(1)
