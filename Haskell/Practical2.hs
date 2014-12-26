@@ -15,5 +15,15 @@ arb :: RegExp a
 arb a = range (const True)
 
 alt :: Eq a => RegExp a -> RegExp a -> RegExp a
-alt r0 r1
-	| 
+alt r0 r1 s
+	| isJust m = t
+	| otherwise r1 s
+	where t@(m, rs) = r0 s
+
+sqn :: Eq a => RegExp a -> RegExp a -> RegExp a
+sqn r0 r1 s
+	| isJust m0 && isJust m1 = (Just (fromJust m0 ++ fromJust m1), rs)
+	| otherwise = t
+	where
+		(m0, ts) = r0 s
+		(m1, rs) = r1 ts
