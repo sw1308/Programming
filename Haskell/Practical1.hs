@@ -23,29 +23,33 @@ dropWhitespace = dropWhile whitespace
 
 type V = String
 type N = Int
-data E = Var V | Val N | Plus E E | Mult E E
+data Op = Add | Mul
+data E = Vr V | Vl N | Ap E Op E
 
 instance Show E where
-	show (Var v) = v
-	show (Val n) = show n
-	show (Plus e0 e1) = show e0 ++ " + " ++ show e1
-	show (Mult e0 e1) = show e0 ++ " * " ++ show e1
+	show (Vr v) = v
+	show (Vl n) = show n
+	show (Ap e0 Add e1) = show e0 ++ " + " ++ show e1
+	show (Ap e0 Mul e1) = show e0 ++ " * " ++ show e1
 
-evaluate :: E -> Int
-evaluate (Var v) = error("error on input Var " ++ show v)
-evaluate (Val n) = n
-evaluate (Plus x y) = (evaluate x) + (evaluate y)
-evaluate (Mult x y) = (evaluate x) * (evaluate y)
+testExp :: E
+testExp = (Ap (Vr "x") Mul (Ap (Vr "y") Add (Vr "z")))
+
+evaluate :: Assoc Int -> E -> Int
+evaluate a (Vr v) = fetch v a
+evaluate a (Vl n) = n
+evaluate a (Ap x Add y) = (evaluate a x) + (evaluate a y)
+evaluate a (Ap x Mul y) = (evaluate a x) * (evaluate a y)
 
 simplify :: E -> E
-simplify (Mult e (Val 0)) = Val 0
-simplify (Mult e (Val 1)) = simplify e
-simplify (Mult (Val 0) e) = Val 0
-simplify (Mult (Val 1) e) = simplify e
-simplify (Plus e (Val 0)) = simplify e
-simplify (Plus (Val 0) e) = simplify e
-simplify (Mult e0 e1) = Mult (simplify e0) (simplify e1)
-simplify (Plus e0 e1) = Plus (simplify e0) (simplify e1)
+simplify (Ap e Mul (Vl 0)) = Vl 0
+simplify (Ap e Mul (Vl 1)) = simplify e
+simplify (Ap (Vl 0) Mul e) = Vl 0
+simplify (Ap (Vl 1) Mul e) = simplify e
+simplify (Ap e Add (Vl 0)) = simplify e
+simplify (Ap (Vl 0) Add e) = simplify e
+simplify (Ap e0 Mul e1) = Ap (simplify e0) Mul (simplify e1)
+simplify (Ap e0 Add e1) = Ap (simplify e0) Add (simplify e1)
 simplify e = e
 
 type Assoc a = [(String, a)]
@@ -56,3 +60,29 @@ test = [("x", 4), ("y", 2), ("z", 0)]
 names :: Assoc a -> [String]
 names [] = []
 names (x:xs) = [fst x] ++ names xs
+
+inAssoc :: String -> Assoc a -> Bool
+inAssoc s a = elem s (names a)
+
+fetch :: String -> Assoc a -> a
+fetch s [] = error("Could not find value associated with " ++ s)
+fetch s ((t,n):xs)
+	| s == t = n
+	| otherwise = fetch s xs
+
+update :: String -> a -> Assoc a -> Assoc a
+update s m [] = [(s, m)]
+update s m ((t, n):xs)
+	| s == t = [(t, m)] ++ xs
+	| otherwise = [(t, n)] ++ update s m xs
+
+tailT :: [a] -> Maybe [a]
+tailT [] = Nothing
+tailT xs = Just (tail xs)
+
+lastT :: [a] -> Maybe a
+lastT [] = Nothing
+lastT xs = Just (last xs)
+
+total :: (a -> b) -> (a -> Maybe b)
+total  = 
