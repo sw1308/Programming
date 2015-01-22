@@ -1,0 +1,105 @@
+html, body, h1, p {
+	padding:0;
+	margin:0;
+}
+body {
+	background-color:#ffebee;
+	z-index:0;
+	font-family: 'Roboto', sans-serif;
+}
+header {
+	color:rgba(255,255,255,1.0);
+	background-color:#f44336;
+	text-align:center;
+	padding:13px;
+	z-index:21;
+	position:relative;
+	box-shadow:1px 1px 10px  #000;
+}
+nav {
+	background-color:#ef5350;
+	padding:0;
+	text-align:justify;
+	z-index:20;
+	position:relative;
+	box-shadow:1px 1px 10px #000;
+	transition:0.5s ease-in;
+}
+nav div {
+	display:inline-block;
+	background-color:#ef5350;
+	width:89px;
+	margin:13px auto;
+	z-index:20;
+	position:relative;
+	text-align:center;
+	transition:0.5s ease-in;
+}
+.stretch {
+	margin:0;
+	padding:0;
+	width:100%;
+	display:inline-block;
+	font-size:0;
+	line-height:0;
+}
+.stdContainer {
+	transition:0.5s ease-in;
+	background-color:#ef5350;
+	text-align:center;
+	color:rgba(255,255,255,0.7);
+	height:auto;
+	margin-top:21px;
+	margin-left:auto;
+	margin-right:auto;
+	min-width:610px;
+	width:50%;
+	max-width:987px;
+	z-index:8;
+	position:relative;
+	box-shadow:1px 1px 10px #000;
+	border:1px solid #ef5350;
+}
+.stdContainer * {
+	padding:21px;
+	text-align:center;
+	margin:0 auto;
+}
+.stdContainer div p {
+	height:100%;
+}
+.stdContainer .comment {
+	width:25%;
+	margin:16px;
+	padding:5px;
+	float:left;
+	border-right:1px solid rgba(255,255,255,0.12);
+}
+.stdContainer .amount {
+	width:25%;
+	margin:16px;
+	height:auto;
+	padding:5px;
+	margin:16px auto;
+}
+.stdContainer .inOut {
+	width:25%;
+	height:100%;
+	margin:16px;
+	padding:5px;
+	float:right;
+	border-left:1px solid rgba(255,255,255,0.12);
+}
+.hiddenTop {
+	opacity:0;
+}
+.hiddenTop * {
+	opacity:0;
+}
+.clearFix {
+	clear:both;
+	height:0;
+	width:0;
+	padding:0;
+	margin:0;
+}
