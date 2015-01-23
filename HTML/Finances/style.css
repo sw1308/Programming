@@ -11,7 +11,7 @@ header {
 	color:rgba(255,255,255,1.0);
 	background-color:#f44336;
 	text-align:center;
-	padding:13px;
+	padding:21px;
 	z-index:21;
 	position:relative;
 	box-shadow:1px 1px 10px  #000;
@@ -20,30 +20,29 @@ header {
 nav {
 	background-color:#ef5350;
 	padding:0;
-	text-align:justify;
 	z-index:20;
 	position:relative;
+	border:1px solid #ef5350;
 	box-shadow:1px 1px 10px #000;
 	transition:0.5s ease-in;
 }
 nav div {
-	display:inline-block;
+	display:block;
 	color:rgba(255,255,255,0.7);
+	border:1px solid #ef5350;
 	background-color:#ef5350;
+	cursor:pointer;
 	width:89px;
-	margin:13px auto;
+	margin:0 13px;
 	z-index:20;
 	position:relative;
 	text-align:center;
+	vertical-align:center;
 	transition:0.5s ease-in;
 }
-.stretch {
-	margin:0;
-	padding:0;
-	width:100%;
-	display:inline-block;
-	font-size:0;
-	line-height:0;
+nav div * {
+	user-select:none;
+	position:relative;
 }
 .stdContainer {
 	transition:0.5s ease-in;
@@ -104,4 +103,27 @@ nav div {
 	width:0;
 	padding:0;
 	margin:0;
+}
+.ink {
+	display: block; position: absolute;
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 100%;
+	transform: scale(0);
+}
+.ink.animate {animation: ripple 0.65s linear;}
+@webkit-keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; transform: scale(2.5);}
+}
+@moz-keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; transform: scale(2.5);}
+}
+@o-keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; transform: scale(2.5);}
+}
+@keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; transform: scale(2.5);}
 }
