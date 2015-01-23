@@ -8,7 +8,7 @@
 (define the-lexical-spec
   '(
     (whitespace (whitespace)                skip)
-    (number     ()                     number)
+    (number     (digit (arbno digit))     number)
    )
 )
 ; Grammar
