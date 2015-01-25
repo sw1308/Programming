@@ -64,7 +64,7 @@ nav div * {
 	list-style-type:none;
 	display:inline-block;
 	margin:5px 0;
-	width:30%;
+	width:24%;
 }
 .stdContainer ul li a {
 	cursor:pointer;
@@ -73,6 +73,9 @@ nav div * {
 	-o-user-select:none;
 	user-select:none;
 	display:block;
+}
+.stdContainer .comment {
+	border-left:1px solid rgba(255,255,255,0.3);
 }
 .stdContainer .amount {
 	border-right:1px solid rgba(255,255,255,0.3);
@@ -93,6 +96,34 @@ nav div * {
 	width:0;
 	padding:0;
 	margin:0;
+}
+footer .addEntry {
+	border-radius:50%;
+	margin:13px auto;
+	width:55px;
+	height :55px;
+	background-color:#ef5350;
+	color:rgba(255,255,255,0.7);
+	text-align:center;
+	display:block;
+	border:1px solid #ef5350;
+}
+footer .addEntry * {
+	background-color:rgba(255,255,255,0.7);
+}
+footer .addEntry .vert {
+	margin:10% auto;
+	width:10%;
+	height:80%;
+}
+footer .addEntry .hor {
+	-webkit-transform:translate(0, -55px);
+	-moz-transform:translate(0, -55px);
+	-o-transform:translate(0, -55px);
+	transform:translate(0, -55px);
+	margin:50% auto;
+	height:10%;
+	width:80%;
 }
 .ink {
 	display: block; position: absolute;
