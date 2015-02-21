@@ -5,6 +5,8 @@
 
 #include <stdio.h>
 #include <GL/glew.h>
+#define GLFW_DLL
+#include <GLFW/glfw3.h>
 #include <GL/glut.h>
 
 #include "math_3d.h"
@@ -46,19 +48,13 @@ static void CreateVertexBuffer()
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 }
 
-void CreateShader()
-{
-	GLuint ShaderProgram = glCreateProgram();
-	GLuint ShaderObjV = glCreateShader(GL_VERTEX_SHADER);
-	GLuint ShaderObjF = glCreateShader(GL_FRAGMENT_SHADER);
-}
-
 int main(int argc, char** argv)
 {	
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
-	glutInitWindowSize(1024, 720);
-	glutInitWindowPosition(50,50);
+	glViewport(-200, -200, 200, 200);
+	glutInitWindowSize(400, 400);
+	glutInitWindowPosition(50, 50);
 	glutCreateWindow("OpenGL Tutorial");
 	
 	InitGlutCallbacks();
@@ -71,6 +67,6 @@ int main(int argc, char** argv)
 	}
 	
 	CreateVertexBuffer();
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glutMainLoop();
 }
