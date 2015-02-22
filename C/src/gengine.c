@@ -153,7 +153,7 @@ static void InitGlutCallbacks()
 
 //Main function
 int main(int argc, char** argv)
-{
+{	
 	glutInit(&argc, argv);
 	glutInitWindowSize(400, 400);
 	glutInitWindowPosition(50, 50);
@@ -169,6 +169,9 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
 		return 1;
 	}
+	
+	printf("%s", glGetString(GL_VERSION));
+	fflush(stdout);
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glutMainLoop();
