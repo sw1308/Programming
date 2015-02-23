@@ -21,59 +21,20 @@ GLfloat Colours[] =
 	{1.0f, 0.0f, 0.0f,
 	0.0f, 1.0f, 0.0f,
 	0.0f, 0.0f, 1.0f}; //Array of colours
-/*GLuint VBO; //Vertex Buffer Object*/
-/*GLuint VCO; //Vertex Colour Object*/
+	
 int keyStates[256]; //Key buffer
+GLuint vao, vbo[2];
 
-//2D rotation
-void rotateCW2D(GLfloat *position, GLfloat rad)
+void rotate2DCW(GLfloat *vertices, GLfloat theta)
 {
-	int i;
 	
-	for(i=0; i<(sizeof(position)/sizeof(GLfloat)); i+=2)
-	{
-		position[i] = (position[i] * cos(rad)) + (position[i+1] * sin(rad));
-		position[i+1] = (position[i+1] * cos(rad)) - (position[i] * sin(rad));
-	}
-}
-
-void rotateCCW2D(GLfloat *position, GLfloat rad)
-{
-	int i;
-	
-	for(i=0; i<(sizeof(position)/sizeof(GLfloat)); i+=2)
-	{
-		position[i] = (position[i] * cos(rad)) - (position[i+1] * sin(rad));
-		position[i+1] = (position[i+1] * cos(rad)) + (position[i] * sin(rad));
-	}
-}
-
-//2D translation
-translate2D(GLfloat *position, GLfloat x, GLfloat y)
-{
-	;
-}
-
-//2D scale
-scale2D(GLfloat *position, GLfloat scale)
-{
-	;
-}
-
-//2D shear
-shear2D(GLfloat *position, GLfloat scale)
-{
-	;
 }
 
 //Initial draw function
 void draw()
 {
-	glutSwapBuffers();
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_COLOR_ARRAY);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 	
 	glLoadIdentity();
@@ -81,20 +42,11 @@ void draw()
 	glutPostRedisplay();
 }
 
-void redraw() {
-//	glutTimerFunc(100, redraw, 0); //Set up next call to redraw
+void redraw()
+{
 	glClear(GL_COLOR_BUFFER_BIT); //Clear the screen
 	
-/*	glBindBuffer(GL_ARRAY_BUFFER, VBO);*/
-/*	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), Positions, GL_DYNAMIC_DRAW);*/
-/*	glFinish();*/
-/*	glVertexPointer(2, GL_FLOAT, 0, (char *) NULL);*/
-/*	*/
-/*	glGenBuffers(1, &VCO);*/
-/*	glBindBuffer(GL_ARRAY_BUFFER, VCO);*/
-/*	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), Colours, GL_DYNAMIC_DRAW);*/
-/*	glFinish();*/
-/*	glColorPointer(3, GL_FLOAT, 0, (char *) NULL);*/
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 	
 	glutSwapBuffers();
 	glutPostRedisplay();
@@ -135,21 +87,126 @@ static void InitGlutCallbacks()
 	glutTimerFunc(10, keyOperations, 0);
 }
 
-/*//Create objects*/
-/*static void CreateVertexBuffer()*/
-/*{*/
-/* 	glGenBuffers(1, &VBO);*/
-/*	glBindBuffer(GL_ARRAY_BUFFER, VBO);*/
-/*	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), Positions, GL_DYNAMIC_DRAW);*/
-/*	glFinish();*/
-/*	glVertexPointer(2, GL_FLOAT, 0, (char *) NULL);*/
-/*	*/
-/*	glGenBuffers(1, &VCO);*/
-/*	glBindBuffer(GL_ARRAY_BUFFER, VCO);*/
-/*	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), Colours, GL_DYNAMIC_DRAW);*/
-/*	glFinish();*/
-/*	glColorPointer(3, GL_FLOAT, 0, (char *) NULL);*/
-/*}*/
+char * filetobuff(const char *file)
+{
+	FILE *fptr;
+    long length;
+    char *buf;
+ 
+    fptr = fopen(file, "rb"); /* Open file for reading */
+    
+    if (!fptr) /* Return NULL on failure */
+    {
+    	return NULL;
+    }
+    
+    fseek(fptr, 0, SEEK_END); /* Seek to the end of the file */
+    length = ftell(fptr); /* Find out how many bytes into the file we are */
+    buf = (char*)malloc(length+1); /* Allocate a buffer for the entire length of the file and a null terminator */
+    fseek(fptr, 0, SEEK_SET); /* Go back to the beginning of the file */
+    fread(buf, length, 1, fptr); /* Read the contents of the file in to the buffer */
+    fclose(fptr); /* Close the file */
+    buf[length] = 0; /* Null terminator */
+ 
+    return buf; /* Return the buffer */
+}
+
+GLuint CreateShader(GLenum eShaderType, const char* strShaderFile)
+{
+	GLuint shader = glCreateShader(eShaderType);
+	
+	GLchar *shaderSource = filetobuff(strShaderFile);
+	
+	glShaderSource(shader, 1, (const char **) &shaderSource, 0);
+	
+	glCompileShader(shader);
+	
+	GLint status;
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+	
+	if(status == GL_FALSE)
+	{
+		GLint infoLogLength;
+		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLogLength);
+		
+		GLchar strInfoLog[infoLogLength + 1];
+		glGetShaderInfoLog(shader, infoLogLength, NULL, strInfoLog);
+		
+		const char *strShaderType = NULL;
+		switch(eShaderType)
+		{
+			case GL_VERTEX_SHADER: strShaderType = "vertex"; break;
+			case GL_GEOMETRY_SHADER: strShaderType = "geometry"; break;
+			case GL_FRAGMENT_SHADER: strShaderType = "fragment"; break;
+		}
+		
+		fprintf(stderr, "Compile failure in %s shader:\n%s\n", strShaderType, strInfoLog);
+		free(strInfoLog);
+		return;
+	}
+	
+	return shader;
+}
+
+void CreateProgram(const GLuint shaderList[])
+{
+	int i;
+	GLuint shaderProgram = glCreateProgram();
+	
+	for(i=0; i<sizeof(shaderList)/sizeof(shaderList[0]); i++)
+	{
+		glAttachShader(shaderProgram, shaderList[i]);
+	}
+	
+	glBindAttribLocation(shaderProgram, 0, "position");
+	glBindAttribLocation(shaderProgram, 1, "colour");
+	
+	glLinkProgram(shaderProgram);
+	
+	GLuint status;
+	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &status);
+	
+	if(status = GL_FALSE)
+	{
+		GLint infoLogLength;
+		glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &infoLogLength);
+		
+		GLchar strInfoLog[infoLogLength + 1];
+		glGetProgramInfoLog(shaderProgram, infoLogLength, NULL, strInfoLog);
+		fprintf(stderr, "Linker failure: %s\n", strInfoLog);
+		free(strInfoLog);
+		return;
+	}
+	
+	glUseProgram(shaderProgram);
+}
+
+void InitializeProgram()
+{
+	GLuint shaderList[2];
+	
+	shaderList[0] = CreateShader(GL_FRAGMENT_SHADER, "dat/gengine.frag");
+	shaderList[1] = CreateShader(GL_VERTEX_SHADER, "dat/gengine.vert");
+	
+	CreateProgram(shaderList);
+}
+
+void CreateBuffers()
+{
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+	glGenBuffers(2, vbo);
+	
+	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+	glBufferData(GL_ARRAY_BUFFER, 6*sizeof(GLfloat), Positions, GL_STREAM_DRAW);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+	
+	glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
+	glBufferData(GL_ARRAY_BUFFER, 9*sizeof(GLfloat), Colours, GL_STATIC_DRAW);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(1);
+}
 
 //Main function
 int main(int argc, char** argv)
@@ -170,8 +227,9 @@ int main(int argc, char** argv)
 		return 1;
 	}
 	
-	printf("%s", glGetString(GL_VERSION));
-	fflush(stdout);
+	InitializeProgram();
+	
+	CreateBuffers();
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glutMainLoop();
