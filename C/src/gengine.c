@@ -3,8 +3,6 @@
  * gcc src/gengine.c -o bin/gengine -lGL -lGLEW -lGLU -lglut -lm
  */
 #include <GL/glew.h> //Standard header for appropriate OpenGL headers
-#define GLFW_DLL
-#include <GLFW/glfw3.h> //Allows cross platform usability
 #include <GL/glut.h> //Useful OpenGL functions
 #include <math.h>
 #include <stdio.h>
@@ -27,7 +25,7 @@ GLuint vao, vbo[2];
 
 void rotate2DCW(GLfloat *vertices, GLfloat theta)
 {
-	
+	;
 }
 
 //Initial draw function
@@ -220,6 +218,7 @@ int main(int argc, char** argv)
 	
 	InitGlutCallbacks();
 	
+	glewExperimental = GL_TRUE;
 	GLenum res = glewInit();
 	if(res != GLEW_OK)
 	{
@@ -230,7 +229,7 @@ int main(int argc, char** argv)
 	InitializeProgram();
 	
 	CreateBuffers();
-	
+
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glutMainLoop();
 }
