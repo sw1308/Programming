@@ -1,0 +1,53 @@
+/*custom fonts - Bitter, Montserrat*/
+@import url('http://fonts.googleapis.com/css?family=Montserrat|Bitter');
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	margin:0;
+	padding:0;
+	font-family:Roboto, "Sans Serif";
+}
+
+#siteWrapper {
+	width:100%;
+	height:100vh;
+}
+
+header {
+	background:#96372e;
+	width:100%;
+	height:55px;
+	text-align:center;
+}
+
+header h1 {
+	color:#e0dcd7;
+	
+	height:34px;
+	font-size:34px;
+	line-height:34px;
+	transform:translate(0,-50%);
+}
+
+/*.ink styles - the elements which will create the ripple effect. The size and position of these elements will be set by the JS code. Initially these elements will be scaled down to 0% and later animated to large fading circles on user click.*/
+.ink {
+	display: block; position: absolute;
+	background: #3d2a20;
+	border-radius: 50%;
+	transform: scale(0);
+}
+
+/*animation effect*/
+.ink.animate {
+	-webkit-animation: ripple 0.65s linear;
+	-moz-animation: ripple 0.65s linear;
+	-o-animation: ripple 0.65s linear;
+	animation: ripple 0.65s linear;
+}
+
+/*scale the element to 250% to safely cover the entire link and fade it out*/
+@-webkit-keyframes ripple {100% {opacity: 0; transform: scale(2.5);}}
+@-moz-keyframes ripple {100% {opacity: 0; transform: scale(2.5);}}
+@-o-keyframes ripple {100% {opacity: 0; transform: scale(2.5);}}
+@keyframes ripple {100% {opacity: 0; transform: scale(2.5);}}

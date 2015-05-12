@@ -1,3 +1,12 @@
+//while (not solved):
+//	while (change happens):
+//		fill in determined possibilities
+//	
+//	add branch (current table)
+//	current table = new branch
+//	fill in (possibility by heuristic)
+	
+
 #include<stdio.h>
 #include<stdlib.h>
 
