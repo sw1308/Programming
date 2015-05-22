@@ -73,8 +73,17 @@ int main()
 		{
 			applyRules(table);
 		}
-		forkTree();
-		fillRandon();
+
+		if(failed > 1)
+		{
+			revertTree();
+			fillRandom();
+		}
+		else
+		{
+			forkTree();
+			fillRandom();
+		}
 	}
 
 	printf("Puzzle solved");
