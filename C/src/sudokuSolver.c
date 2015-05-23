@@ -97,9 +97,6 @@ int main()
 {
 	init();
 
-	char i;
-	char j;
-
 	while(complete < 1)
 	{
 		while(changeHappens > 1)
