@@ -58,6 +58,10 @@ void setCell(char coords, char val)
 	}
 }
 
+void applyRules()
+{
+	
+}
 //Code kept for applying ruleset, not currently used
 /*void setCell(char coords, char val)
 {
@@ -101,7 +105,7 @@ int main()
 	{
 		while(changeHappens > 1)
 		{
-			applyRules(table);
+			applyRules();
 		}
 
 		if(failed > 1)
