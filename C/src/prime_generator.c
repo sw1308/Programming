@@ -9,18 +9,18 @@ int main()
 	unsigned long long int found = 0;
 	unsigned long long int maxVal = 0;
 	unsigned long long int* max = &maxVal;
-	
+
 	FILE *fp;
 	fp = fopen(FILEPATH, "a+");
-	
+
 	printf("\nPlease enter the max number of primes to find: ");
 	scanf("%llu", max);
-	
+
 	while(fscanf(fp, "%llu", &i) != EOF) {found++;}
 	rewind(fp);
 	i++;
-	
-	
+
+
 	while(found < maxVal)
 	{
 		if(i==1)
@@ -37,7 +37,7 @@ int main()
 		else
 		{
 			unsigned long long int line;
-		
+
 			while(fscanf(fp, "%llu", &line) != EOF)
 			{
 				if(line>sqrt(i))
@@ -54,9 +54,9 @@ int main()
 				}
 			}
 		}
-		
+
 		i++;
-		
+
 		//Reduces output to increase speed
 		if(i%1000000==0)
 		{
@@ -64,6 +64,6 @@ int main()
 			printf("Found: %llu\n", found);
 		}
 	}
-	
+
 	fclose(fp);
 }
