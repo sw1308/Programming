@@ -381,7 +381,7 @@ class PuzzleTree {
 	private PuzzleTree parentTree;
 	private ArrayList<PuzzleTree> leafPuzzles;
 	private int currentPuzzle;
-	private int maxBranch;
+//	private int maxBranch;
 	private LinkedList<Coords> heuristic;
 	
 	public PuzzleTree(int size) {
@@ -389,7 +389,7 @@ class PuzzleTree {
 		currentPuzzle = -1;
 		leafPuzzles = new ArrayList<PuzzleTree>();
 		heuristic = new LinkedList<Coords>();
-		calcMax();
+//		calcMax();
 		calcHeuristic();
 	}
 	
@@ -399,7 +399,7 @@ class PuzzleTree {
 		currentPuzzle = -1;
 		leafPuzzles = new ArrayList<PuzzleTree>();
 		heuristic = new LinkedList<Coords>();
-		calcMax();
+//		calcMax();
 		calcHeuristic();
 	}
 	
@@ -409,7 +409,7 @@ class PuzzleTree {
 		currentPuzzle = -1;
 		leafPuzzles = new ArrayList<PuzzleTree>();
 		heuristic = new LinkedList<Coords>();
-		calcMax();
+//		calcMax();
 		calcHeuristic();
 	}
 	
@@ -418,9 +418,9 @@ class PuzzleTree {
 	}
 	
 	public PuzzleTree branch() {
-		calcMax();
+//		calcMax();
 		
-		if(currentPuzzle == maxBranch) {
+		if(heuristic.size() == 0) {
 			System.out.println("Cannot branch, exceeded current branch limit.");
 			return revert();
 		}
@@ -431,13 +431,13 @@ class PuzzleTree {
 	}
 	
 	public PuzzleTree revert() {
-		if(currentPuzzle == maxBranch) {
+		if(heuristic.size() == 0) {
 			return parentTree.revert();
 		}
 		return parentTree;
 	}
 	
-	public void calcMax() {
+/*	public void calcMax() {
 		maxBranch = 0;
 		for(int x=0; x<rootPuzzle.getSize(); x++) {
 			for(int y=0; y<rootPuzzle.getSize(); y++) {
@@ -446,7 +446,7 @@ class PuzzleTree {
 				}
 			}
 		}
-	}
+	}*/
 	
 	public Coords getNextMove() {
 		return heuristic.pop();
