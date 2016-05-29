@@ -1,0 +1,238 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+% Allows equations and maths to be written out in a fluid way
+\usepackage{amsmath}
+
+% Remove indentations from the start of paragraphs
+\usepackage[parfill]{parskip}
+
+% Used for references, requires bibtex to be installed
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{intro.bib}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
+
+\title{An introduction to \LaTeX}
+\author{Samuel Watkins MEng \thanks{Gathered from information on the internet.}}
+\date{March 2016}
+
+\begin{document}
+
+\begin{titlepage}
+\pagenumbering{gobble}
+\maketitle
+\end{titlepage}
+
+\pagenumbering{gobble}
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Introduction}
+This is an introduction document. It doesn't contain anything interesting, just
+the basic preamble.\cite{preamble}
+
+In this example I'll be showing some simple things you can do in \LaTeX. The
+following is some simple document formatting that allows you to structure your
+paragraphs into sections, subsections, paragraphs, and subparagraphs.
+
+Text formatting such as \textit{italics}, \textbf{bold}, and \underline{underlines} will not be provided with their own sections because it's not really necessary.\cite{formatting}
+
+\section{Sections}
+This is a section, they are all automatically numbered and titled.\cite{paragraphs}
+
+\subsection{Subsections}
+This is a subsection, their number is generated from the section that contains them.
+
+\paragraph{}
+This is an example of an untitled paragraph.
+
+\paragraph{Paragraphs}
+This is a paragraph, they are not numbered and their titles are put on the left of the text.
+
+\subparagraph{Subparagraphs}
+This is a subparagraph, they are indented from
+their containing paragraph but are otherwise formatted in mostly the same way.
+
+\newpage
+\section{Lists}
+Lists\cite{lists} can be ordered (numerically, alphbetically etc.) or unordered (bulleted lists). Below is an example of an unordered list:
+
+\begin{itemize}
+\item Unordered item \#1
+\item Unordered item \#2
+\begin{itemize}
+\item Unordered sub-item \#1
+\begin{enumerate}
+\item Ordered sub-item \#1
+\item Ordered sub-item \#2
+\item Ordered sub-item \#3
+\end{enumerate}
+\item Unordered sub-item \#2
+\end{itemize}
+\item Unordered item \#3
+\item Unordered item \#4
+\item Unordered item \#5
+\end{itemize}
+
+And here is an example of an ordered list:
+\begin{enumerate}
+\item List item \#1
+\begin{enumerate}
+\item List sub-item \#1
+\begin{itemize}
+\item Unordered sub-item \#1
+\item Unordered sub-item \#2
+\end{itemize}
+\item List item \#2
+\end{enumerate}
+\item List item \#2
+\item List item \#3
+\end{enumerate}
+
+Note that not ony can you create easy nested lists, but you can also nest unordered lists in ordered lists and vice versa.
+
+\newpage
+\section{Equations}
+It is possible to nicely format equations\cite{mathematics} in a fairly straightforward way like so:
+
+\begin{equation*}
+1 + 2 = 3
+\end{equation*}
+
+\begin{equation*}
+3 - 2 = 1
+\end{equation*}
+
+\begin{equation*}
+5 * 2 = 10
+\end{equation*}
+
+\begin{equation*}
+f(x) = mx + c
+\end{equation*}
+
+\begin{equation*}
+g(x) = \frac{1}{\sqrt{x^3}}x^2
+\end{equation*}
+
+\begin{equation*}
+h(x) = \int\limits_0^n \frac{x_{n}}{\sqrt{x^3}}x^2 \ dx
+\end{equation*}
+
+All of the above equations were placed inside the equation environment.
+They can be aligned by using the align environment like so:
+
+\begin{align*}
+1 + 2 &= 3\\
+1 &= 3 - 2\\
+g(x) &= \frac{1}{\sqrt{x^3}}x^2\\
+\int\limits_0^n \frac{x_{n}}{\sqrt{x^3}}x^2 \ dx &= h(x) 
+\end{align*}
+
+Here I have made the alignment at the = sign, however I can make it align to any individual character.
+
+\newpage
+\section{Images}
+It is possible to insert an image\cite{images} into the pdf document.
+\begin{center}
+\includegraphics{sampleSmall}
+\end{center}
+
+You can also resize, rotate, and position images conveniently:
+Standard image:
+\begin{center}
+\includegraphics{sampleLarge}
+\end{center}
+
+Scaled down image:
+\begin{center}
+\includegraphics[scale=0.5]{sampleLarge}
+\end{center}
+
+\newpage
+Resized image:
+\begin{center}
+\includegraphics[width=3cm, height=3cm]{sampleLarge}
+\end{center}
+
+Resscaled image relative to page size:
+\begin{center}
+\includegraphics[width=\textwidth]{sampleLarge}
+\end{center}
+
+\newpage
+Rotated image:
+\begin{center}
+\includegraphics[angle=45, scale=0.5]{sampleLarge}
+\end{center}
+
+You can also add images to separate pages and reference them from the document. See image \ref{figure:1}
+\begin{figure}[p!]
+\centering
+\includegraphics[scale=0.5]{sampleLarge}
+\caption{Image referenced elsewhere in the document.}
+\label{figure:1}
+\end{figure}
+
+
+\newpage
+\section{Tables}
+Here we will look at making tables\cite{tables}.
+
+This table is centered and borderless:
+\begin{center}
+\begin{tabular}{ c c c }
+    cell11 & cell12 & cell13 \\
+    cell21 & cell22 & cell23 \\
+    cell31 & cell32 & cell33
+\end{tabular}
+\end{center}
+
+This table has a border:
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+    \hline
+    cell11 & cell12 & cell13 \\
+    \hline
+    cell21 & cell22 & cell23 \\
+    cell31 & cell32 & cell33 \\
+    \hline
+\end{tabular}
+\end{center}
+
+The formatting method means you can do some interesting things such as this:
+\begin{center}
+\begin{tabular}{ ||c c c||}
+    \hline
+    cell11 & cell12 & cell13 \\
+    \hline\hline
+    cell21 & cell22 & cell23 \\
+    cell31 & cell32 & cell33 \\
+    \hline
+\end{tabular}
+\end{center}
+
+You can also place pages on a separate table page, see table \ref{table:1}
+\begin{table}[p!]
+\centering
+\begin{tabular}{ ||c|c|c||}
+    \hline
+    Title1 & Title2 & Title3 \\
+    \hline\hline
+    item & item & item \\
+    item & item & item \\
+    \hline
+\end{tabular}
+\caption{Table referenced elsewhere in the document.}
+\label{table:1}
+\end{table}
+
+\newpage
+\printbibliography
+
+\end{document}

@@ -14,10 +14,10 @@ makeStrings :: [Integer] -> [String]
 makeStrings = map show
 
 writeStrings :: [String] -> IO ()
-writeStrings [] = appendFile "dat/primes.temp" "2\n2"
-writeStrings [s] = appendFile "dat/primes.temp" s
+writeStrings [] = appendFile "../dat/primes.temp" "2\n2"
+writeStrings [s] = appendFile "../dat/primes.temp" s
 writeStrings (s:ss) = do
-	appendFile "dat/primes.temp" (s ++ "\n")
+	appendFile "../dat/primes.temp" (s ++ "\n")
 	writeStrings ss
 
 permenantWrite permFile tempFile = do
@@ -49,10 +49,10 @@ primeList = [2]
 main = do
 	putStrLn "How many more primes would you like?"
 	n <- getLine
-	fileList <- readLines "dat/primes.txt"
+	fileList <- readLines "../dat/primes.txt"
 	--print $ makeInteger fileList
 	let primeList = makeInteger fileList
 	let prime = getPrime (read n::Integer) primeList
 	putStrLn ("The " ++ n ++ "th next prime is: " ++ (show (last prime)))
 	writeStrings (makeStrings prime)
-	permenantWrite "dat/primes.txt" "dat/primes.temp"
+	permenantWrite "../dat/primes.txt" "../dat/primes.temp"

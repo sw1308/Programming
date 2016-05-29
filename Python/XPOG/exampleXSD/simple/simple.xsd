@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://boners.ddns.net">
+   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+
+   <!--
+   This is a simple example for a note sending system, it will hopefully
+   become more complex as XPOG grows.
+   -->
+
+   <!-- Element group for type NOTE -->
+   <xs:element name="NOTE">
+      <xs:annotation>
+         <xs:documentation>A simple note containing a sender, receiver, title, and message.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="TO" type="xs:string" />
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="CC" type="xs:string" />
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="BCC" type="xs:string" />
+            <xs:element name="FROM" type="xs:string" />
+            <xs:element name="TITLE" type="xs:string" />
+            <xs:element name="MESSAGE" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
+

@@ -1,0 +1,8 @@
+alias lanssh='ssh harold:@192.168.1.122 -p 2222'
+alias autoupdate='sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove'
+alias autoupdateARCH='sudo pacman -Syu'
+alias qqq='exit'
+alias reboot='sudo reboot now'
+alias shutdown='sudo shutdown now'
+alias removeFromGit='git ls-files --deleted -z | xargs -0 git rm'
+alias refreshBash='. ~/.bash_functions; . ~/.bash_aliases'

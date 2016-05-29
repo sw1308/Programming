@@ -1,0 +1,2 @@
+void *genMain();
+int isPrime();

@@ -1,0 +1,2 @@
+int* fillSortedList();
+int nextPrime();

@@ -1,0 +1,585 @@
+! Material Design theme
+#define MATDARKRED      #d32f2f
+#define MATDARKGREEN    #388e3c
+#define MATDARKYELLOW   #fbc02c
+#define MATDARKBLUE     #3949ab
+#define MATDARKMAGENTA  #c2185b
+#define MATDARKCYAN     #0097a7
+#define MATLIGHTGREY    #9e9e9e
+#define MATDARKGREY     #424242
+#define MATRED          #f44336
+#define MATGREEN        #66bb6a
+#define MATYELLOW       #ffeb3b
+#define MATBLUE         #3f51b5
+#define MATMAGENTA      #e91e63
+#define MATCYAN         #00bcd4
+
+#define MATBLACK        #212121
+#define MATGREY8        #424242
+#define MATGREY7        #616161
+#define MATGREY6        #757575
+#define MATGREY5        #9e9e9e
+#define MATGREY4        #bdbdbd
+#define MATGREY3        #e0e0e0
+#define MATGREY2        #eeeeee
+#define MATGREY1        #f5f5f5
+#define MATWHITE        #fafafa
+
+#define MATBROWN9       #3e2723
+#define MATBROWN8       #4e342e
+#define MATBROWN7       #5d4037
+#define MATBROWN6       #6d4c41
+#define MATBROWN5       #795548
+#define MATBROWN4       #8d6e63
+#define MATBROWN3       #a1887f
+#define MATBROWN2       #bcaaa4
+#define MATBROWN1       #d7ccc8
+
+#define MATDEEPORANGE9  #bf360c
+#define MATDEEPORANGE8  #d84315
+#define MATDEEPORANGE7  #e64a19
+#define MATDEEPORANGE6  #f4511e
+#define MATDEEPORANGE5  #ff5722
+#define MATDEEPORANGE4  #ff7043
+#define MATDEEPORANGE3  #ff8a65
+#define MATDEEPORANGE2  #ff1b91
+#define MATDEEPORANGE1  #ffccbc
+
+#define MATORANGE9      #e65100
+#define MATORANGE8      #ef6coo
+#define MATORANGE7      #f57c00
+#define MATORANGE6      #fb8c00
+#define MATORANGE5      #ff9800
+#define MATORANGE4      #ffa726
+#define MATORANGE3      #ffb74d
+#define MATORANGE2      #ffcc80
+#define MATORANGE1      #ffe0b2
+
+#define MATAMBER9       #ff6f00
+#define MATAMBER8       #ff8f00
+#define MATAMBER7       #ffa000
+#define MATAMBER6       #ffb300
+#define MATAMBER5       #ffc107
+#define MATAMBER4       #ffca28
+#define MATAMBER3       #ffd54f
+#define MATAMBER2       #ffe082
+#define MATAMBER1       #ffecb3
+
+#define MATYELLOW9      #f57f17
+#define MATYELLOW8      #f9a825
+#define MATYELLOW7      #fbc02d
+#define MATYELLOW6      #fdd835
+#define MATYELLOW5      #ffeb3b
+#define MATYELLOW4      #ffee58
+#define MATYELLOW3      #fff176
+#define MATYELLOW2      #fff59d
+#define MATYELLOW1      #fff9c4
+
+#define MATLIME9        #827717
+#define MATLIME8        #9e9d24
+#define MATLIME7        #afb42b
+#define MATLIME6        #c0ca33
+#define MATLIME5        #cddc39
+#define MATLIME4        #d4e157
+#define MATLIME3        #dce775
+#define MATLIME2        #e6ee9c
+#define MATLIME1        #f0f4c3
+
+#define MATLIGHTGREEN9  #33691e
+#define MATLIGHTGREEN8  #558b2f
+#define MATLIGHTGREEN7  #689f38
+#define MATLIGHTGREEN6  #7cb342
+#define MATLIGHTGREEN5  #8bc342
+#define MATLIGHTGREEN4  #9ccc65
+#define MATLIGHTGREEN3  #aed581
+#define MATLIGHTGREEN2  #c5e1a5
+#define MATLIGHTGREEN1  #dcedc8
+
+#define MATGREEN9       #1b5e20
+#define MATGREEN8       #2e7d32
+#define MATGREEN7       #388e3c
+#define MATGREEN6       #43a047
+#define MATGREEN5       #4caf50
+#define MATGREEN4       #66bb6a
+#define MATGREEN3       #81c784
+#define MATGREEN2       #a5d6a7
+#define MATGREEN1       #c8e6c9
+
+#define MATTEAL9        #004d40
+#define MATTEAL8        #00695c
+#define MATTEAL7        #00796b
+#define MATTEAL6        #00897b
+#define MATTEAL5        #009688
+#define MATTEAL4        #26a69a
+#define MATTEAL3        #4db6ac
+#define MATTEAL2        #80cbc4
+#define MATTEAL1        #b2dfdb
+
+#define MATCYAN9        #006064
+#define MATCYAN8        #00838f
+#define MATCYAN7        #0097a7
+#define MATCYAN6        #00acc1
+#define MATCYAN5        #00bcd4
+#define MATCYAN4        #26c6da
+#define MATCYAN3        #4dd0e1
+#define MATCYAN2        #80deea
+#define MATCYAN1        #b2ebf2
+
+#define MATLIGHTBLUE9   #01579b
+#define MATLIGHTBLUE8   #0277bd
+#define MATLIGHTBLUE7   #0288d1
+#define MATLIGHTBLUE6   #039be5
+#define MATLIGHTBLUE5   #03a9f4
+#define MATLIGHTBLUE4   #29b6f6
+#define MATLIGHTBLUE3   #4fc3f7
+#define MATLIGHTBLUE2   #81d4fa
+#define MATLIGHTBLUE1   #b3e5fc
+
+#define MATBLUE9        #0d47a1
+#define MATBLUE8        #1565c0
+#define MATBLUE7        #1976d2
+#define MATBLUE6        #1e88e5
+#define MATBLUE5        #2196f3
+#define MATBLUE4        #42a5f5
+#define MATBLUE3        #64b5f6
+#define MATBLUE2        #90caf9
+#define MATBLUE1        #bbdefb
+
+#define MATINDIGO9      #1a237e
+#define MATINDIGO8      #283593
+#define MATINDIGO7      #303f9f
+#define MATINDIGO6      #3949ab
+#define MATINDIGO5      #3f51b5
+#define MATINDIGO4      #5c6bc0
+#define MATINDIGO3      #7986cb
+#define MATINDIGO2      #9fa8da
+#define MATINDIGO1      #c5cae9
+
+#define MATDEEPPURPLE9  #311b92
+#define MATDEEPPURPLE8  #4527a0
+#define MATDEEPPURPLE7  #512da8
+#define MATDEEPPURPLE6  #5e35b1
+#define MATDEEPPURPLE5  #673ab7
+#define MATDEEPPURPLE4  #5c6bc0
+#define MATDEEPPURPLE3  #7986cb
+#define MATDEEPPURPLE2  #9fa8da
+#define MATDEEPPURPLE1  #c5cae9
+
+#define MATPURPLE9      #4a148c
+#define MATPURPLE8      #6a1b9a
+#define MATPURPLE7      #7b1fa2
+#define MATPURPLE6      #8e24aa
+#define MATPURPLE5      #9c27b0
+#define MATPURPLE4      #ab47bc
+#define MATPURPLE3      #ba68c8
+#define MATPURPLE2      #ce93d8
+#define MATPURPLE1      #e1bee7
+
+#define MATPINK9        #880e4f
+#define MATPINK8        #ad1457
+#define MATPINK7        #c2185b
+#define MATPINK6        #d81b60
+#define MATPINK5        #e91e63
+#define MATPINK4        #ec407a
+#define MATPINK3        #f06292
+#define MATPINK2        #f48fb1
+#define MATPINK1        #f8bbd0
+
+#define MATRED9         #b71c1c
+#define MATRED8         #c62828
+#define MATRED7         #d32f2f
+#define MATRED6         #e53935
+#define MATRED5         #f44336
+#define MATRED4         #ef5350
+#define MATRED3         #e57373
+#define MATRED2         #ef9a9a
+#define MATRED1         #ffcdd2
+
+Xcursor.size: 16
+*customization:     -color
+
+! Start with xterm
+XTerm*termName:     xterm-256color
+XTerm*faceName: Inconsolata:size=9:alias=false
+XTerm*font: 7x13
+
+*xterm*background:  MATDARKGREY
+*xterm*foreground:  MATGREY2
+*xterm*cursorColor: MATLIGHTGREY
+*xterm*color0:      MATBLACK
+*xterm*color1:      MATDARKRED
+*xterm*color2:      MATDARKGREEN
+*xterm*color3:      MATDARKYELLOW
+*xterm*color4:      MATDARKBLUE
+*xterm*color5:      MATDARKMAGENTA
+*xterm*color6:      MATDARKCYAN
+*xterm*color7:      MATLIGHTGREY
+*xterm*color8:      MATDARKGREY
+*xterm*color9:      MATRED
+*xterm*color10:     MATGREEN
+*xterm*color11:     MATYELLOW
+*xterm*color12:     MATBLUE
+*xterm*color13:     MATMAGENTA
+*xterm*color14:     MATCYAN
+*xterm*color15:     MATWHITE
+*xterm*color16:     MATBLACK
+*xterm*color17:     MATGREY8
+*xterm*color18:     MATGREY7
+*xterm*color19:     MATGREY6
+*xterm*color20:      MATGREY5
+*xterm*color21:      MATGREY4
+*xterm*color22:      MATGREY3
+*xterm*color23:      MATGREY2
+*xterm*color24:      MATGREY1
+*xterm*color25:      MATWHITE
+*xterm*color26:     MATBROWN9
+*xterm*color27:     MATBROWN8
+*xterm*color28:     MATBROWN7
+*xterm*color29:     MATBROWN6
+*xterm*color30:     MATBROWN5
+*xterm*color31:     MATBROWN4
+*xterm*color32:     MATBROWN3
+*xterm*color33:     MATBROWN2
+*xterm*color34:     MATBROWN1
+*xterm*color35:     MATDEEPORANGE9
+*xterm*color36:     MATDEEPORANGE8
+*xterm*color37:     MATDEEPORANGE7
+*xterm*color38:     MATDEEPORANGE6
+*xterm*color39:     MATDEEPORANGE5
+*xterm*color40:     MATDEEPORANGE4
+*xterm*color41:     MATDEEPORANGE3
+*xterm*color42:     MATDEEPORANGE2
+*xterm*color43:     MATDEEPORANGE1
+*xterm*color44:     MATORANGE9
+*xterm*color45:     MATORANGE8
+*xterm*color46:     MATORANGE7
+*xterm*color47:     MATORANGE6
+*xterm*color48:     MATORANGE5
+*xterm*color49:     MATORANGE4
+*xterm*color50:     MATORANGE3
+*xterm*color51:     MATORANGE2
+*xterm*color52:     MATORANGE1
+*xterm*color53:     MATAMBER9
+*xterm*color54:     MATAMBER8
+*xterm*color55:     MATAMBER7
+*xterm*color56:     MATAMBER6
+*xterm*color57:     MATAMBER5
+*xterm*color58:     MATAMBER4
+*xterm*color59:     MATAMBER3
+*xterm*color60:     MATAMBER2
+*xterm*color61:     MATAMBER1
+*xterm*color62:     MATYELLOW9
+*xterm*color63:     MATYELLOW8
+*xterm*color64:     MATYELLOW7
+*xterm*color65:     MATYELLOW6
+*xterm*color66:     MATYELLOW5
+*xterm*color67:     MATYELLOW4
+*xterm*color68:     MATYELLOW3
+*xterm*color69:     MATYELLOW2
+*xterm*color70:     MATYELLOW1
+*xterm*color71:     MATLIME9
+*xterm*color72:     MATLIME8
+*xterm*color73:     MATLIME7
+*xterm*color74:     MATLIME6
+*xterm*color75:     MATLIME5
+*xterm*color76:     MATLIME4
+*xterm*color77:     MATLIME3
+*xterm*color78:     MATLIME2
+*xterm*color79:     MATLIME1
+*xterm*color80:     MATLIGHTGREEN9
+*xterm*color81:     MATLIGHTGREEN8
+*xterm*color82:     MATLIGHTGREEN7
+*xterm*color83:     MATLIGHTGREEN6
+*xterm*color84:     MATLIGHTGREEN5
+*xterm*color85:     MATLIGHTGREEN4
+*xterm*color86:     MATLIGHTGREEN3
+*xterm*color87:     MATLIGHTGREEN2
+*xterm*color88:     MATLIGHTGREEN1
+*xterm*color89:     MATGREEN9
+*xterm*color90:     MATGREEN8
+*xterm*color91:     MATGREEN7
+*xterm*color92:     MATGREEN6
+*xterm*color93:     MATGREEN5
+*xterm*color94:     MATGREEN4
+*xterm*color95:     MATGREEN3
+*xterm*color96:     MATGREEN2
+*xterm*color97:     MATGREEN1
+*xterm*color98:     MATTEAL9
+*xterm*color99:     MATTEAL8
+*xterm*color100:     MATTEAL7
+*xterm*color101:     MATTEAL6
+*xterm*color102:     MATTEAL5
+*xterm*color103:     MATTEAL4
+*xterm*color104:     MATTEAL3
+*xterm*color105:     MATTEAL2
+*xterm*color106:     MATTEAL1
+*xterm*color107:     MATCYAN9
+*xterm*color108:     MATCYAN8
+*xterm*color109:     MATCYAN7
+*xterm*color110:     MATCYAN6
+*xterm*color111:     MATCYAN5
+*xterm*color112:     MATCYAN4
+*xterm*color113:     MATCYAN3
+*xterm*color114:     MATCYAN2
+*xterm*color115:     MATCYAN1
+*xterm*color116:    MATLIGHTBLUE9
+*xterm*color117:    MATLIGHTBLUE8
+*xterm*color118:    MATLIGHTBLUE7
+*xterm*color119:    MATLIGHTBLUE6
+*xterm*color120:    MATLIGHTBLUE5
+*xterm*color121:    MATLIGHTBLUE4
+*xterm*color122:    MATLIGHTBLUE3
+*xterm*color123:    MATLIGHTBLUE2
+*xterm*color124:    MATLIGHTBLUE1
+*xterm*color125:    MATBLUE9
+*xterm*color126:    MATBLUE8
+*xterm*color127:    MATBLUE7
+*xterm*color128:    MATBLUE6
+*xterm*color129:    MATBLUE5
+*xterm*color130:    MATBLUE4
+*xterm*color131:    MATBLUE3
+*xterm*color132:    MATBLUE2
+*xterm*color133:    MATBLUE1
+*xterm*color134:    MATINDIGO9
+*xterm*color135:    MATINDIGO8
+*xterm*color136:    MATINDIGO7
+*xterm*color137:    MATINDIGO6
+*xterm*color138:    MATINDIGO5
+*xterm*color139:    MATINDIGO4
+*xterm*color140:    MATINDIGO3
+*xterm*color141:    MATINDIGO2
+*xterm*color142:    MATINDIGO1
+*xterm*color143:    MATDEEPPURPLE9
+*xterm*color144:    MATDEEPPURPLE8
+*xterm*color145:    MATDEEPPURPLE7
+*xterm*color146:    MATDEEPPURPLE6
+*xterm*color147:    MATDEEPPURPLE5
+*xterm*color148:    MATDEEPPURPLE4
+*xterm*color149:    MATDEEPPURPLE3
+*xterm*color150:    MATDEEPPURPLE2
+*xterm*color151:    MATDEEPPURPLE1
+*xterm*color152:    MATPURPLE9
+*xterm*color153:    MATPURPLE8
+*xterm*color154:    MATPURPLE7
+*xterm*color155:    MATPURPLE6
+*xterm*color156:    MATPURPLE5
+*xterm*color157:    MATPURPLE4
+*xterm*color158:    MATPURPLE3
+*xterm*color159:    MATPURPLE2
+*xterm*color160:    MATPURPLE1
+*xterm*color161:    MATPINK9
+*xterm*color162:    MATPINK8
+*xterm*color163:    MATPINK7
+*xterm*color164:    MATPINK6
+*xterm*color165:    MATPINK5
+*xterm*color166:    MATPINK4
+*xterm*color167:    MATPINK3
+*xterm*color168:    MATPINK2
+*xterm*color169:    MATPINK1
+*xterm*color170:    MATRED9
+*xterm*color171:    MATRED8
+*xterm*color172:    MATRED7
+*xterm*color173:    MATRED6
+*xterm*color174:    MATRED5
+*xterm*color175:    MATRED4
+*xterm*color176:    MATRED3
+*xterm*color177:    MATRED2
+*xterm*color178:    MATRED1
+
+
+! Now for URxvt
+*URxvt*skipScroll:         true
+*URxvt*scrollBar:          false
+*URxvt*scrollBar_right:    false
+*URxvt*scrollBar_floating: false
+*URxvt*font:               xft:Inconsolata\ for\ Powerline:size=9
+URxvt*letterSpace:         0
+
+! No ctrl+arrows... really?
+*URxvt.keysym.Control-Up:   \033[1;5A
+*URxvt.keysym.Control-Down:    \033[1;5B
+*URxvt.keysym.Control-Left:    \033[1;5D
+*URxvt.keysym.Control-Right:    \033[1;5C
+
+*URxvt*background:  MATDARKGREY
+*URxvt*foreground:  MATGREY2
+*URxvt*cursorColor: MATLIGHTGREY
+*URxvt*color0:      MATBLACK
+*URxvt*color1:      MATDARKRED
+*URxvt*color2:      MATDARKGREEN
+*URxvt*color3:      MATDARKYELLOW
+*URxvt*color4:      MATDARKBLUE
+*URxvt*color5:      MATDARKMAGENTA
+*URxvt*color6:      MATDARKCYAN
+*URxvt*color7:      MATLIGHTGREY
+*URxvt*color8:      MATDARKGREY
+*URxvt*color9:      MATRED
+*URxvt*color10:     MATGREEN
+*URxvt*color11:     MATYELLOW
+*URxvt*color12:     MATBLUE
+*URxvt*color13:     MATMAGENTA
+*URxvt*color14:     MATCYAN
+*URxvt*color15:     MATWHITE
+*URxvt*color16:     MATBLACK
+*URxvt*color17:     MATGREY8
+*URxvt*color18:     MATGREY7
+*URxvt*color19:     MATGREY6
+*URxvt*color20:      MATGREY5
+*URxvt*color21:      MATGREY4
+*URxvt*color22:      MATGREY3
+*URxvt*color23:      MATGREY2
+*URxvt*color24:      MATGREY1
+*URxvt*color25:      MATWHITE
+*URxvt*color26:     MATBROWN9
+*URxvt*color27:     MATBROWN8
+*URxvt*color28:     MATBROWN7
+*URxvt*color29:     MATBROWN6
+*URxvt*color30:     MATBROWN5
+*URxvt*color31:     MATBROWN4
+*URxvt*color32:     MATBROWN3
+*URxvt*color33:     MATBROWN2
+*URxvt*color34:     MATBROWN1
+*URxvt*color35:     MATDEEPORANGE9
+*URxvt*color36:     MATDEEPORANGE8
+*URxvt*color37:     MATDEEPORANGE7
+*URxvt*color38:     MATDEEPORANGE6
+*URxvt*color39:     MATDEEPORANGE5
+*URxvt*color40:     MATDEEPORANGE4
+*URxvt*color41:     MATDEEPORANGE3
+*URxvt*color42:     MATDEEPORANGE2
+*URxvt*color43:     MATDEEPORANGE1
+*URxvt*color44:     MATORANGE9
+*URxvt*color45:     MATORANGE8
+*URxvt*color46:     MATORANGE7
+*URxvt*color47:     MATORANGE6
+*URxvt*color48:     MATORANGE5
+*URxvt*color49:     MATORANGE4
+*URxvt*color50:     MATORANGE3
+*URxvt*color51:     MATORANGE2
+*URxvt*color52:     MATORANGE1
+*URxvt*color53:     MATAMBER9
+*URxvt*color54:     MATAMBER8
+*URxvt*color55:     MATAMBER7
+*URxvt*color56:     MATAMBER6
+*URxvt*color57:     MATAMBER5
+*URxvt*color58:     MATAMBER4
+*URxvt*color59:     MATAMBER3
+*URxvt*color60:     MATAMBER2
+*URxvt*color61:     MATAMBER1
+*URxvt*color62:     MATYELLOW9
+*URxvt*color63:     MATYELLOW8
+*URxvt*color64:     MATYELLOW7
+*URxvt*color65:     MATYELLOW6
+*URxvt*color66:     MATYELLOW5
+*URxvt*color67:     MATYELLOW4
+*URxvt*color68:     MATYELLOW3
+*URxvt*color69:     MATYELLOW2
+*URxvt*color70:     MATYELLOW1
+*URxvt*color71:     MATLIME9
+*URxvt*color72:     MATLIME8
+*URxvt*color73:     MATLIME7
+*URxvt*color74:     MATLIME6
+*URxvt*color75:     MATLIME5
+*URxvt*color76:     MATLIME4
+*URxvt*color77:     MATLIME3
+*URxvt*color78:     MATLIME2
+*URxvt*color79:     MATLIME1
+*URxvt*color80:     MATLIGHTGREEN9
+*URxvt*color81:     MATLIGHTGREEN8
+*URxvt*color82:     MATLIGHTGREEN7
+*URxvt*color83:     MATLIGHTGREEN6
+*URxvt*color84:     MATLIGHTGREEN5
+*URxvt*color85:     MATLIGHTGREEN4
+*URxvt*color86:     MATLIGHTGREEN3
+*URxvt*color87:     MATLIGHTGREEN2
+*URxvt*color88:     MATLIGHTGREEN1
+*URxvt*color89:     MATGREEN9
+*URxvt*color90:     MATGREEN8
+*URxvt*color91:     MATGREEN7
+*URxvt*color92:     MATGREEN6
+*URxvt*color93:     MATGREEN5
+*URxvt*color94:     MATGREEN4
+*URxvt*color95:     MATGREEN3
+*URxvt*color96:     MATGREEN2
+*URxvt*color97:     MATGREEN1
+*URxvt*color98:     MATTEAL9
+*URxvt*color99:     MATTEAL8
+*URxvt*color100:     MATTEAL7
+*URxvt*color101:     MATTEAL6
+*URxvt*color102:     MATTEAL5
+*URxvt*color103:     MATTEAL4
+*URxvt*color104:     MATTEAL3
+*URxvt*color105:     MATTEAL2
+*URxvt*color106:     MATTEAL1
+*URxvt*color107:     MATCYAN9
+*URxvt*color108:     MATCYAN8
+*URxvt*color109:     MATCYAN7
+*URxvt*color110:     MATCYAN6
+*URxvt*color111:     MATCYAN5
+*URxvt*color112:     MATCYAN4
+*URxvt*color113:     MATCYAN3
+*URxvt*color114:     MATCYAN2
+*URxvt*color115:     MATCYAN1
+*URxvt*color116:    MATLIGHTBLUE9
+*URxvt*color117:    MATLIGHTBLUE8
+*URxvt*color118:    MATLIGHTBLUE7
+*URxvt*color119:    MATLIGHTBLUE6
+*URxvt*color120:    MATLIGHTBLUE5
+*URxvt*color121:    MATLIGHTBLUE4
+*URxvt*color122:    MATLIGHTBLUE3
+*URxvt*color123:    MATLIGHTBLUE2
+*URxvt*color124:    MATLIGHTBLUE1
+*URxvt*color125:    MATBLUE9
+*URxvt*color126:    MATBLUE8
+*URxvt*color127:    MATBLUE7
+*URxvt*color128:    MATBLUE6
+*URxvt*color129:    MATBLUE5
+*URxvt*color130:    MATBLUE4
+*URxvt*color131:    MATBLUE3
+*URxvt*color132:    MATBLUE2
+*URxvt*color133:    MATBLUE1
+*URxvt*color134:    MATINDIGO9
+*URxvt*color135:    MATINDIGO8
+*URxvt*color136:    MATINDIGO7
+*URxvt*color137:    MATINDIGO6
+*URxvt*color138:    MATINDIGO5
+*URxvt*color139:    MATINDIGO4
+*URxvt*color140:    MATINDIGO3
+*URxvt*color141:    MATINDIGO2
+*URxvt*color142:    MATINDIGO1
+*URxvt*color143:    MATDEEPPURPLE9
+*URxvt*color144:    MATDEEPPURPLE8
+*URxvt*color145:    MATDEEPPURPLE7
+*URxvt*color146:    MATDEEPPURPLE6
+*URxvt*color147:    MATDEEPPURPLE5
+*URxvt*color148:    MATDEEPPURPLE4
+*URxvt*color149:    MATDEEPPURPLE3
+*URxvt*color150:    MATDEEPPURPLE2
+*URxvt*color151:    MATDEEPPURPLE1
+*URxvt*color152:    MATPURPLE9
+*URxvt*color153:    MATPURPLE8
+*URxvt*color154:    MATPURPLE7
+*URxvt*color155:    MATPURPLE6
+*URxvt*color156:    MATPURPLE5
+*URxvt*color157:    MATPURPLE4
+*URxvt*color158:    MATPURPLE3
+*URxvt*color159:    MATPURPLE2
+*URxvt*color160:    MATPURPLE1
+*URxvt*color161:    MATPINK9
+*URxvt*color162:    MATPINK8
+*URxvt*color163:    MATPINK7
+*URxvt*color164:    MATPINK6
+*URxvt*color165:    MATPINK5
+*URxvt*color166:    MATPINK4
+*URxvt*color167:    MATPINK3
+*URxvt*color168:    MATPINK2
+*URxvt*color169:    MATPINK1
+*URxvt*color170:    MATRED9
+*URxvt*color171:    MATRED8
+*URxvt*color172:    MATRED7
+*URxvt*color173:    MATRED6
+*URxvt*color174:    MATRED5
+*URxvt*color175:    MATRED4
+*URxvt*color176:    MATRED3
+*URxvt*color177:    MATRED2
+*URxvt*color178:    MATRED1
